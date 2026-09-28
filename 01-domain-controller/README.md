@@ -14,11 +14,11 @@ Build a Windows Server VM (DC01) that acts as a domain controller for a new fore
 ## Steps completed
 - [x] Created DC01 VM
 - [x] Installed Windows Server (Standard, Desktop Experience)
-- [ ] Set static IP
-- [ ] Renamed server to DC01 and rebooted
-- [ ] Installed AD DS and DNS Server roles
-- [ ] Promoted to domain controller (new forest `lab.local`)
-- [ ] Verified AD and DNS (ADUC opens, forward lookup zone `lab.local` exists)
+- [x] Set static IP
+- [x] Renamed server to DC01 and rebooted
+- [x] Installed AD DS and DNS Server roles
+- [x] Promoted to domain controller (new forest `lab.local`)
+- [x] Verified AD and DNS (ADUC opens, forward lookup zone `lab.local` exists)
 
 ## Build notes
 
@@ -27,10 +27,29 @@ DC01 was created with 2 CPU cores, 4 GB RAM, and a 60 GB disk on host-only netwo
 
 ![DC01 VM settings](screenshots/01-vm-settings.png)
 
-### First login
-Server Manager opened after the first login.
+### Installing Windows Server 2022
+Installed Standard (Desktop Experience), then logged in for the first time.
 
-![Server Manager](screenshots/02-server-manager.png)
+![Server Manager after first login](screenshots/02-server-manager.png)
+
+### Setting a static IP
+Set DC01's IP to 192.168.10.10/255.255.255.0, pointing DNS at itself, so its address never changes.
+
+![Static IP configuration](screenshots/03-static-ip.png)
+
+### Installing AD DS and DNS roles
+Installed the Active Directory Domain Services and DNS Server roles.
+
+![Roles installed successfully](screenshots/04-roles-installed.png)
+
+### Promoting to a domain controller
+Promoted DC01 to a domain controller, creating a new forest and domain: `lab.local`.
+
+![Promotion review options](screenshots/05-promotion-review.png)
+
+After the restart, the login screen showed LAB\Administrator, confirming the domain was created.
+
+![Domain login](screenshots/06-domain-login.png)
 
 ### Optional: DHCP
 - [ ] Installed DHCP Server role and completed configuration

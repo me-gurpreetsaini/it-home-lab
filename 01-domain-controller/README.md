@@ -7,7 +7,7 @@ Build a Windows Server VM (DC01) that acts as a domain controller for a new fore
 - VM name: DC01
 - Hypervisor: VMware Workstation Pro 17
 - Specs: 2 CPU cores, 4-8 GB RAM, 60 GB disk
-- OS: Windows Server (version: ___)
+- OS: Windows Server 2022
 - Network mode: Host-Only / Internal Network (pick one)
 - Static IP: 192.168.10.10 / 255.255.255.0, DNS = 192.168.10.10 (itself)
 

@@ -12,7 +12,7 @@ Hands-on home lab built to learn the fundamentals behind help desk, desktop supp
 
 ## Lab environment
 
-- Hypervisor: VirtualBox / VMware Workstation Player (pick one, delete the other)
+- Hypervisor: VMware Workstation Pro 17
 - Servers: Windows Server 2019/2022 (Evaluation)
 - Clients: Windows 10/11
 - Network simulation: Cisco Packet Tracer (version: ___)

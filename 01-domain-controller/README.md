@@ -6,19 +6,31 @@ Build a Windows Server VM (DC01) that acts as a domain controller for a new fore
 ## Environment
 - VM name: DC01
 - Hypervisor: VMware Workstation Pro 17
-- Specs: 2 CPU cores, 4-8 GB RAM, 60 GB disk
+- Specs: 2 CPU cores, 4 GB RAM, 60 GB disk
 - OS: Windows Server 2022
-- Network mode: Host-Only / Internal Network (pick one)
+- Network mode: Host-Only 
 - Static IP: 192.168.10.10 / 255.255.255.0, DNS = 192.168.10.10 (itself)
 
 ## Steps completed
-- [ ] Created DC01 VM
-- [ ] Installed Windows Server (Standard, Desktop Experience)
+- [x] Created DC01 VM
+- [x] Installed Windows Server (Standard, Desktop Experience)
 - [ ] Set static IP
 - [ ] Renamed server to DC01 and rebooted
 - [ ] Installed AD DS and DNS Server roles
 - [ ] Promoted to domain controller (new forest `lab.local`)
 - [ ] Verified AD and DNS (ADUC opens, forward lookup zone `lab.local` exists)
+
+## Build notes
+
+### Creating the VM
+DC01 was created with 2 CPU cores, 4 GB RAM, and a 60 GB disk on host-only networking.
+
+![DC01 VM settings](screenshots/01-vm-settings.png)
+
+### First login
+Server Manager opened after the first login.
+
+![Server Manager](screenshots/02-server-manager.png)
 
 ### Optional: DHCP
 - [ ] Installed DHCP Server role and completed configuration

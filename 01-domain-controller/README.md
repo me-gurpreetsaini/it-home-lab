@@ -51,11 +51,17 @@ After the restart, the login screen showed LAB\Administrator, confirming the dom
 
 ![Domain login](screenshots/06-domain-login.png)
 
-### Optional: DHCP
-- [ ] Installed DHCP Server role and completed configuration
-- [ ] Created scope 192.168.10.100 - 192.168.10.200
-- [ ] Set options: 003 gateway, 006 DNS (192.168.10.10), 015 domain (lab.local)
-- [ ] Activated scope
+### Setting up DHCP (optional)
+Installed the DHCP Server role and created a scope so clients on the network get an IP automatically instead of needing one typed in by hand.
+
+Scope: 192.168.10.100–192.168.10.200, subnet mask 255.255.255.0, DNS 192.168.10.10, domain lab.local.
+
+![DHCP console showing active scope](screenshots/07-dhcp-console.png)
+
+- [x] Installed DHCP Server role and completed configuration
+- [x] Created scope 192.168.10.100 - 192.168.10.200
+- [x] Set options: 003 gateway, 006 DNS (192.168.10.10), 015 domain (lab.local)
+- [x] Activated scope
 
 ## Screenshots to capture
 Save into `screenshots/` and link them here.

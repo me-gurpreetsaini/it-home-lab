@@ -3,21 +3,22 @@
 ## Goal
 Join a Windows client to `lab.local` and perform core AD administration: OUs, users, groups, and Group Policy.
 
+
 ## Environment
 - VM name: PC01
 - Specs: 2 CPU cores, 4 GB RAM, 60 GB disk
-- OS: Windows 10 / 11
-- Same VM network as DC01
-- IP: 192.168.10.20 (static) or DHCP; DNS = 192.168.10.10
+- OS: Windows 11
+- Same VM network as DC01 (VMnet1, host-only, subnet corrected to 192.168.10.0/24)
+- IP: 192.168.10.100 (via DHCP from DC01); DNS = 192.168.10.10
 
 ## Steps completed
 - [x] Created PC01 on the same network as DC01
 - [x] Set DNS to 192.168.10.10
 - [x] Tested `ping 192.168.10.10` and `nslookup lab.local`
 - [x] Joined the domain and rebooted
-- [ ] Created OUs: Users, Computers, Admins
-- [ ] Created user `jdoe`
-- [ ] Created groups `GG-IT-Admins` and `GG-Staff` and added members
+- [x] Created OUs: Lab-Admins, Staff, Workstations
+- [x] Created user `jdoe`
+- [x] Created groups `GG-IT-Admins` and `GG-Staff` and added members
 - [ ] Created a GPO on the Users OU (Prohibit access to Control Panel)
 - [ ] Logged in as `jdoe`, ran `gpupdate /force`, confirmed Control Panel is blocked
 
@@ -73,6 +74,25 @@ Logged in on PC01 using the domain account LAB\Administrator, confirming PC01 no
 Verified from the server side: PC01 appears under lab.local > Computers in Active Directory Users and Computers.
 
 ![PC01 in ADUC](screenshots/15-pc01-in-aduc.png)
+
+## Building the AD structure
+
+Created a basic OU structure to organize users, groups, and computers, since the built-in Users/Computers containers can't have Group Policy applied to them directly.
+
+![OU structure](screenshots/16-ou-structure.png)
+
+Created two security groups: GG-IT-Admins (in Lab-Admins OU) and GG-Staff (in Staff OU).
+
+![GG-IT-Admins group](screenshots/17-groups-created.png)
+
+
+Created a user, John Doe (logon name: jdoe), inside the Staff OU.
+
+![User created](screenshots/18-user-created.png)
+
+Added jdoe as a member of GG-Staff.
+
+![jdoe group membership](screenshots/19-jdoe-group-membership.png)
 
 ## Problems and fixes
 See [TROUBLESHOOTING.md](../TROUBLESHOOTING.md).

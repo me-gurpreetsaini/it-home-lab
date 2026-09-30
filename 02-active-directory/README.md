@@ -19,8 +19,8 @@ Join a Windows client to `lab.local` and perform core AD administration: OUs, us
 - [x] Created OUs: Lab-Admins, Staff, Workstations
 - [x] Created user `jdoe`
 - [x] Created groups `GG-IT-Admins` and `GG-Staff` and added members
-- [ ] Created a GPO on the Users OU (Prohibit access to Control Panel)
-- [ ] Logged in as `jdoe`, ran `gpupdate /force`, confirmed Control Panel is blocked
+- [x] Created a GPO on the "Staff" OU (Prohibit access to Control Panel)
+- [x] Logged in as `jdoe`, ran `gpupdate /force`, confirmed Control Panel is blocked
 
 ## Screenshots to capture
 1. Successful ping and nslookup from PC01
@@ -93,6 +93,20 @@ Created a user, John Doe (logon name: jdoe), inside the Staff OU.
 Added jdoe as a member of GG-Staff.
 
 ![jdoe group membership](screenshots/19-jdoe-group-membership.png)
+
+## Group Policy: blocking Control Panel for Staff
+
+Created a GPO named Block-ControlPanel, linked to the Staff OU, to test that policy enforcement works across the domain.
+
+![GPO setting: Prohibit access to Control Panel](screenshots/20-gpo-setting.png)
+
+Logged into PC01 as jdoe (a member of the Staff OU) and ran `gpupdate /force` to apply the policy. Control Panel was blocked as expected.
+
+![Control Panel blocked for jdoe](screenshots/21-controlpanel-blocked.png)
+
+Confirmed the policy was actually applied (not just coincidentally blocked) using `gpresult /r`, which listed Block-ControlPanel under Applied Group Policy Objects.
+
+![gpresult showing applied GPO](screenshots/22-gpresult.png)
 
 ## Problems and fixes
 See [TROUBLESHOOTING.md](../TROUBLESHOOTING.md).

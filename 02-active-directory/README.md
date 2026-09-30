@@ -14,7 +14,7 @@ Join a Windows client to `lab.local` and perform core AD administration: OUs, us
 - [x] Created PC01 on the same network as DC01
 - [x] Set DNS to 192.168.10.10
 - [x] Tested `ping 192.168.10.10` and `nslookup lab.local`
-- [ ] Joined the domain and rebooted
+- [x] Joined the domain and rebooted
 - [ ] Created OUs: Users, Computers, Admins
 - [ ] Created user `jdoe`
 - [ ] Created groups `GG-IT-Admins` and `GG-Staff` and added members
@@ -59,6 +59,20 @@ After releasing and renewing, PC01 received 192.168.10.100 from DHCP Server 192.
 Pinged DC01 successfully (0% loss) and resolved lab.local via nslookup.
 
 ![Ping and nslookup results](screenshots/12-ping-nslookup.png)
+
+## Joining PC01 to the domain
+
+Joined PC01 to lab.local and confirmed the join from both sides.
+
+![Welcome to the domain](screenshots/13-welcome-to-domain.png)
+
+Logged in on PC01 using the domain account LAB\Administrator, confirming PC01 now trusts DC01 for authentication instead of using a local account.
+
+![Logged in as LAB\\Administrator](screenshots/14-domain-login-pc01.png)
+
+Verified from the server side: PC01 appears under lab.local > Computers in Active Directory Users and Computers.
+
+![PC01 in ADUC](screenshots/15-pc01-in-aduc.png)
 
 ## Problems and fixes
 See [TROUBLESHOOTING.md](../TROUBLESHOOTING.md).

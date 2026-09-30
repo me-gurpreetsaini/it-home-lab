@@ -5,6 +5,7 @@ Interviewers love these. Log every problem, even small ones.
 | Date | Project | Symptom | Cause | Fix |
 |------|---------|---------|-------|-----|
 | 2026-09-29 | Active Directory | PC01 got IP 192.168.226.130 instead of 192.168.10.x | VMware's built-in DHCP on VMnet1 (host-only) conflicted with DC01's DHCP server, and VMnet1's subnet didn't match | Disabled VMware's local DHCP service on VMnet1, changed its subnet to 192.168.10.0/24 |
+| 2026-09-29 | Active Directory | Couldn't create OU named "Users" | AD already has a built-in Users container with that exact name | Renamed custom OUs to Lab-Admins, Staff, Workstations to avoid collision |
 | | | | | |
 
 ## Detailed writeup: PC01 got the wrong IP
